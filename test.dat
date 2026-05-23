@@ -1,0 +1,29 @@
+// =========================================================
+// test.dat - "The Von Neumann Bottleneck"
+// Executes 154 total instructions via a 25-iteration loop.
+// =========================================================
+
+// [00] Setup
+10000093 // ADDI x1, x0, 256  (Array Pointer)
+00000113 // ADDI x2, x0, 0    (Running Sum = 0)
+01900193 // ADDI x3, x0, 25   (Loop Counter = 25)
+
+// =========================================================
+// THE LOOP (Starts at PC = 12)
+// =========================================================
+// [03] 
+0000A203 // LW   x4, 0(x1)    (Load from memory)
+// [04]
+00410133 // ADD  x2, x2, x4   (Accumulate sum)
+// [05]
+0020A023 // SW   x2, 0(x1)    (Store sum back to memory)
+// [06]
+00408093 // ADDI x1, x1, 4    (Move pointer to next word)
+// [07]
+FFF18193 // ADDI x3, x3, -1   (Decrement counter)
+// [08]
+FE0196E3 // BNE  x3, x0, -20  (Branch backward 5 instructions if counter != 0)
+
+// =========================================================
+// [09] Halt
+00000063 // BEQ  x0, x0, 0    (Infinite Loop)
