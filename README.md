@@ -2,14 +2,15 @@
 
 ## 📌 Project Overview
 
-This repository contains a cycle-accurate hardware implementation of a **32-bit RISC-V Processor** written in **Verilog HDL**.  
+This repository contains a cycle-accurate hardware implementation of a **32-bit RISC-V Processor** written in **Verilog HDL**.
+
 The processor features:
 
-- ✅ 5-Stage Instruction Pipeline  
-- ✅ Full Data Hazard Detection  
-- ✅ Data Forwarding Unit  
-- ✅ Multi-Level Cache Hierarchy (L1 Instruction Cache, L1 Data Cache, Unified L2 Cache)  
-- ✅ Comparative Cache vs No-Cache Performance Analysis  
+- ✅ 5-Stage Instruction Pipeline
+- ✅ Full Data Hazard Detection
+- ✅ Data Forwarding Unit
+- ✅ Multi-Level Cache Hierarchy (L1 Instruction Cache, L1 Data Cache, Unified L2 Cache)
+- ✅ Comparative Cache vs No-Cache Performance Analysis
 
 The primary objective of this project is to experimentally demonstrate the impact of the **von Neumann Bottleneck** and mathematically prove the importance of cache memory in modern processor architectures.
 
@@ -160,24 +161,24 @@ The No-Cache architecture suffered forced wait states for every memory access, w
 
 ## 🔹 L1 Instruction Cache
 
-- **Hits:** 37  
-- **Misses:** 2  
+- **Hits:** 37
+- **Misses:** 2
 - **Hit Rate:** **94.8%**
 
 ---
 
 ## 🔹 L1 Data Cache
 
-- **Hits:** 19  
-- **Misses:** 1  
+- **Hits:** 19
+- **Misses:** 1
 - **Hit Rate:** **95.0%**
 
 ---
 
 ## 🔹 Unified L2 Cache
 
-- **Hits:** 3  
-- **Misses:** 3  
+- **Hits:** 3
+- **Misses:** 3
 
 ---
 
@@ -215,7 +216,7 @@ This experimentally proves the architectural necessity of cache memory in modern
 ## 🔹 Requirements
 
 - **Icarus Verilog (iverilog)**
-- **GTKWave** (Optional for waveform viewing)
+- **GTKWave** *(Optional for waveform viewing)*
 
 ---
 
@@ -225,3 +226,71 @@ This experimentally proves the architectural necessity of cache memory in modern
 git clone https://github.com/hariprasad-eng/RISCV_CPU_INTEGRATED_WITH_CACHE_MEMORY.git
 
 cd RISCV_CPU_INTEGRATED_WITH_CACHE_MEMORY
+```
+
+---
+
+## 2️⃣ Compile the Design
+
+```bash
+iverilog -o cpu_sim tb_compare.v PipelinedCPU.v riscv_cache_system.v riscv_nocache_system.v *.v
+```
+
+---
+
+## 3️⃣ Run the Simulation
+
+```bash
+vvp cpu_sim
+```
+
+---
+
+## 4️⃣ View Waveforms (Optional)
+
+```bash
+gtkwave compare.vcd
+```
+
+---
+
+# 🛠️ Tools & Technologies Used
+
+- Verilog HDL
+- Icarus Verilog
+- GTKWave
+- RISC-V RV32I ISA
+- Digital Logic Design
+- Computer Architecture
+- Pipeline Hazard Analysis
+- Cache Memory Systems
+
+---
+
+# 🔮 Future Work
+
+## ✅ Planned Improvements
+
+- Branch Instructions (`BNE`, `BLT`, `BGE`)
+- Dynamic Branch Prediction
+- Branch History Table (BHT)
+- FPGA Deployment
+- Physical Timing Analysis
+- Multi-Core Extension
+- Superscalar Execution
+- Out-of-Order Execution Support
+
+
+
+---
+
+# ⭐ Repository Highlights
+
+- ✔️ Complete RV32I 5-Stage Pipeline
+- ✔️ Fully Functional Hazard Logic
+- ✔️ Cache vs No-Cache Comparative Study
+- ✔️ Multi-Level Cache Hierarchy
+- ✔️ Detailed CPI & Stall Analytics
+- ✔️ Cycle-Accurate Verilog Simulation
+- ✔️ Strong Demonstration of Computer Architecture Concepts
+
