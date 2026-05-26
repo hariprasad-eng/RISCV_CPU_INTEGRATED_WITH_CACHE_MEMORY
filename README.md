@@ -1,16 +1,16 @@
-# 🚀 High-Performance 5-Stage Pipelined RISC-V Processor with Multi-Level Cache
+#  High-Performance 5-Stage Pipelined RISC-V Processor with Multi-Level Cache
 
-## 📌 Project Overview
+##  Project Overview
 
 This repository contains a cycle-accurate hardware implementation of a **32-bit RISC-V Processor** written in **Verilog HDL**.
 
 The processor features:
 
-- ✅ 5-Stage Instruction Pipeline
-- ✅ Full Data Hazard Detection
-- ✅ Data Forwarding Unit
-- ✅ Multi-Level Cache Hierarchy (L1 Instruction Cache, L1 Data Cache, Unified L2 Cache)
-- ✅ Comparative Cache vs No-Cache Performance Analysis
+-  5-Stage Instruction Pipeline
+-  Full Data Hazard Detection
+-  Data Forwarding Unit
+-  Multi-Level Cache Hierarchy (L1 Instruction Cache, L1 Data Cache, Unified L2 Cache)
+-  Comparative Cache vs No-Cache Performance Analysis
 
 The primary objective of this project is to experimentally demonstrate the impact of the **von Neumann Bottleneck** and mathematically prove the importance of cache memory in modern processor architectures.
 
@@ -23,9 +23,9 @@ the processor performs a strict **Ablation Study** to analyze execution latency,
 
 ---
 
-# 🏗️ Processor Architecture
+#  Processor Architecture
 
-## 🔹 5-Stage Pipeline
+##  5-Stage Pipeline
 
 The processor implements the standard **RV32I** instruction pipeline:
 
@@ -41,7 +41,7 @@ The processor implements the standard **RV32I** instruction pipeline:
 
 # ⚡ Hazard Mitigation & Forwarding
 
-## 🔁 Forwarding Unit
+##  Forwarding Unit
 
 The forwarding logic dynamically routes data from:
 
@@ -52,7 +52,7 @@ directly back into the ALU inputs to eliminate unnecessary stalls caused by **RA
 
 ---
 
-## 🛑 Hazard Detection Unit
+##  Hazard Detection Unit
 
 The Hazard Detection Unit detects:
 
@@ -64,7 +64,7 @@ and safely inserts **pipeline bubbles (NOPs)** whenever mathematically required.
 
 ---
 
-# ⏱️ Latency Model (Cycle Breakdown)
+#  Latency Model (Cycle Breakdown)
 
 To accurately measure the memory bottleneck, the processor enforces strict hardware cycle latencies.
 
@@ -78,7 +78,7 @@ The IF and MEM stages interact with the memory hierarchy and therefore experienc
 
 ---
 
-## 📊 Stage Latency Comparison
+##  Stage Latency Comparison
 
 | Pipeline Stage | Cached CPU (Cache Hit) | No-Cache CPU (Raw Memory) |
 |---|---|---|
@@ -94,7 +94,7 @@ The IF and MEM stages interact with the memory hierarchy and therefore experienc
 
 ---
 
-# 🧠 Cache Hierarchy
+#  Cache Hierarchy
 
 ## 🔹 Cache Organization
 
@@ -119,11 +119,11 @@ The cache controller automatically freezes and resumes the pipeline during cache
 
 ---
 
-# 📊 Ablation Study — Proving the Cache
+#  Ablation Study — Proving the Cache
 
 To evaluate the architecture, the processor was tested using a highly stressful RISC-V benchmark called:
 
-# 🔥 “The Straight-Line Avalanche”
+#  “The Straight-Line Avalanche”
 
 This benchmark heavily stresses:
 
@@ -138,7 +138,7 @@ without using branch instructions.
 
 ---
 
-# 📈 Final Performance Results
+#  Final Performance Results
 
 The benchmark retired a total of **55 Instructions**.
 
@@ -146,7 +146,7 @@ The No-Cache architecture suffered forced wait states for every memory access, w
 
 ---
 
-## 🏆 Performance Comparison
+##  Performance Comparison
 
 | Metric | Cached CPU (With L1/L2) | No-Cache CPU (Raw Memory) |
 |---|---|---|
@@ -157,7 +157,7 @@ The No-Cache architecture suffered forced wait states for every memory access, w
 
 ---
 
-# 📉 Cache Analytics
+#  Cache Analytics
 
 ## 🔹 L1 Instruction Cache
 
@@ -182,22 +182,22 @@ The No-Cache architecture suffered forced wait states for every memory access, w
 
 ---
 
-# ✅ Final Conclusion
+#  Final Conclusion
 
 The cache hierarchy successfully absorbed the **von Neumann Bottleneck**.
 
 By reducing memory access latency from **5 cycles** to effectively **1 cycle** for most accesses, the Cached CPU achieved:
 
-- ✅ **Over 67% Reduction in Execution Time**
-- ✅ CPI Improvement from **4.21 → 1.36**
-- ✅ Massive Reduction in Pipeline Stalls
-- ✅ Near-Ideal Pipeline Throughput
+-  **Over 67% Reduction in Execution Time**
+-  CPI Improvement from **4.21 → 1.36**
+-  Massive Reduction in Pipeline Stalls
+-  Near-Ideal Pipeline Throughput
 
 This experimentally proves the architectural necessity of cache memory in modern high-performance processors.
 
 ---
 
-# 📂 Project File Structure
+#  Project File Structure
 
 | File | Description |
 |---|---|
@@ -211,7 +211,7 @@ This experimentally proves the architectural necessity of cache memory in modern
 
 ---
 
-# 🚀 Running the Simulation
+#  Running the Simulation
 
 ## 🔹 Requirements
 
@@ -254,7 +254,7 @@ gtkwave compare.vcd
 
 ---
 
-# 🛠️ Tools & Technologies Used
+#  Tools & Technologies Used
 
 - Verilog HDL
 - Icarus Verilog
@@ -267,9 +267,9 @@ gtkwave compare.vcd
 
 ---
 
-# 🔮 Future Work
+#  Future Work
 
-## ✅ Planned Improvements
+##  Planned Improvements
 
 - Branch Instructions (`BNE`, `BLT`, `BGE`)
 - Dynamic Branch Prediction
@@ -284,13 +284,13 @@ gtkwave compare.vcd
 
 ---
 
-# ⭐ Repository Highlights
+#  Repository Highlights
 
-- ✔️ Complete RV32I 5-Stage Pipeline
-- ✔️ Fully Functional Hazard Logic
-- ✔️ Cache vs No-Cache Comparative Study
-- ✔️ Multi-Level Cache Hierarchy
-- ✔️ Detailed CPI & Stall Analytics
-- ✔️ Cycle-Accurate Verilog Simulation
-- ✔️ Strong Demonstration of Computer Architecture Concepts
+-  Complete RV32I 5-Stage Pipeline
+-  Fully Functional Hazard Logic
+-  Cache vs No-Cache Comparative Study
+-  Multi-Level Cache Hierarchy
+-  Detailed CPI & Stall Analytics
+-  Cycle-Accurate Verilog Simulation
+-  Strong Demonstration of Computer Architecture Concepts
 
