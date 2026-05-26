@@ -39,7 +39,7 @@ The processor implements the standard **RV32I** instruction pipeline:
 
 ---
 
-# ⚡ Hazard Mitigation & Forwarding
+#  Hazard Mitigation & Forwarding
 
 ##  Forwarding Unit
 
